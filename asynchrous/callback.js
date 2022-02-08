@@ -13,7 +13,18 @@ const print = (err, content)=>{
     if(err){
         console.log(err);
     }else{
+        // Callback.
         console.log(content.toString());
+        fs.write("test.txt", content.toString(), (err)=>{
+            if(err){
+                console.log(err);
+            }else{
+                console.log("Data is written");
+                fs.read("d", (err, data)=>{
+                    fs.writeFile()
+                })
+            }
+        })
     }
 }
 
