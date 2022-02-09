@@ -15,14 +15,18 @@ Seller
 
 seed data for sellers.
 
+REST API Standards
+- GET, POST, PUT, DELETE
+
+
 Apis.
-    - GetAll Products
-    - Get one Product
-    - get products by seller id
-    - update product(secure)
-    - delete product(secure)
-    - add product(secure)
-    - login for seller.
+    - GetAll Products - GET
+    - Get one Product - GET
+    - get products by seller id  - GET
+    - update product(secure) - PUT
+    - delete product(secure) - DELETE
+    - add product(secure) - POST
+    - login for seller. - POST
 
 MVC
 (available to all)
