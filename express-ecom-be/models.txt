@@ -1,0 +1,40 @@
+
+Product
+    id
+    name
+    description
+    image(upload)
+    price
+    sellerID
+
+Seller
+    id
+    name
+    username
+    password
+
+seed data for sellers.
+
+Apis.
+    - GetAll Products
+    - Get one Product
+    - get products by seller id
+    - update product(secure)
+    - delete product(secure)
+    - add product(secure)
+    - login for seller.
+
+MVC
+(available to all)
+ - Show All products
+ - See detail of product.
+ - Filter products based on seller.
+
+(for seller)
+ - see seller's products.
+ - Udpate a product
+ - Delete a product
+ - Add Product
+ - Login Page
+
+    
