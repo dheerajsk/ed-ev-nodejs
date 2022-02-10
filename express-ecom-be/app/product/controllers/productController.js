@@ -10,8 +10,15 @@ const HTTPStatus = require("http-status-codes");
 
 
 exports.getAll = (req, res)=>{
-    res.end("Get All products");
+   repository.getAll((err, data)=>{
+       if(err){
+        res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
+       }else{
+        res.send(data);
+       }
+   })
 }
+
 
 exports.getBySellerID = (req, res)=>{
     res.end("Get All products by sller id");
@@ -23,13 +30,10 @@ exports.get = (req, res)=>{
 
 exports.add = (req, res)=>{
     const newProduct = new productModel(req.body);
-    console.log(newProduct);
     repository.add(newProduct, (err, data)=>{
         if(err){
             res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }else{
-            console.log(data);
-            console.log("Else");
             res.send(data);
         }
     })
@@ -37,7 +41,11 @@ exports.add = (req, res)=>{
 }
 
 exports.update = (req, res)=>{
-    res.end("Update product");
+    const productToUpdate = new productModel(req.body);
+    console.log("calling repo");
+    repository.update(productToUpdate, (data)=>{
+        res.send(data);
+    })
 }
 
 exports.delete = (req, res)=>{

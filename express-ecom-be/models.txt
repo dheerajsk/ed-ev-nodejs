@@ -18,12 +18,12 @@ REST API Standards
 
 
 Apis.
-    - GetAll Products - GET
+    - GetAll Products - GET - done
     - Get one Product - GET
     - get products by seller id  - GET
-    - update product(secure) - PUT
+    - update product(secure) - PUT - done
     - delete product(secure) - DELETE
-    - add product(secure) - POST
+    - add product(secure) - POST - Done
     - login for seller. - POST
 
 MVC
@@ -46,8 +46,8 @@ Steps to create REST API.
 3. Create DB - done
 4. Connect NodeJS to Mongodb cluser - done
 5. Create Models - Done
-6. Write Repository to add product
-7. Update Controller.
+6. Write Repository to add product - done
+7. Update Controller. - done
 
 
 
