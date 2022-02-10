@@ -1,6 +1,6 @@
 
 Product
-    id
+    id (ObjectID)
     name
     description
     image(upload)
@@ -8,12 +8,10 @@ Product
     sellerID
 
 Seller
-    id
+    id (ObjectID)
     name
     username
     password
-
-seed data for sellers.
 
 REST API Standards
 - GET, POST, PUT, DELETE
@@ -42,3 +40,18 @@ MVC
  - Login Page
 
     
+Steps to create REST API.
+1. Configured Routes - done
+2. Created Controllers - done
+3. Create DB - done
+4. Connect NodeJS to Mongodb cluser - done
+5. Create Models - Done
+6. Write Repository to add product
+7. Update Controller.
+
+
+
+Controller->BusinessLogic(Service, Managers)-> Repository(DAL, Persistence Layer)-> DB
+
+Infrastructure Layer (Sending Email)
+Entities/Schema Layer 

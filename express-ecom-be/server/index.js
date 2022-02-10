@@ -2,12 +2,22 @@
 // Step 1: Import express
 const express = require("express");
 const productRoutes = require("../app/product/routes/productRoutes");
+const mongodb = require("./config/mongodb");
+const bodyParser = require("body-parser");
 
 // Step 2: Create Server
 const server = express();
 
+// Connect to MongoDB
+
+mongodb.connect();
+
+
 // Step 3: Listen to clients
 server.listen(3200);
+
+// Middleware for bodyParser
+server.use(bodyParser.json());
 
 // Step 4: Routing redirections
 
