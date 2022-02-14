@@ -4,7 +4,7 @@
 // - shouldn't have any business logic - (BLL)
 // - shouldn't have any data related code. - (DAL/repositories)
 
-const productModel = require("../models/product");
+const {product} = require("../../../server/config/models");
 const repository = require("../repositories/product");
 const HTTPStatus = require("http-status-codes");
 
@@ -46,7 +46,7 @@ exports.get = (req, res)=>{
 }
 
 exports.add = (req, res)=>{
-    const newProduct = new productModel(req.body);
+    const newProduct = new product(req.body);
     repository.add(newProduct, (err, data)=>{
         if(err){
             res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
@@ -58,7 +58,7 @@ exports.add = (req, res)=>{
 }
 
 exports.update = (req, res)=>{
-    const productToUpdate = new productModel(req.body);
+    const productToUpdate = new product(req.body);
     console.log("calling repo");
     repository.update(productToUpdate, (data)=>{
         res.send(data);
