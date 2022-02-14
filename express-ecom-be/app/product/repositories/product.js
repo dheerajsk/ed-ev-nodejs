@@ -40,6 +40,16 @@ exports.get = (id, cb)=>{
         )
 }
 
+exports.delete = (id, cb)=>{
+    productModel.findByIdAndDelete(id)
+        .then(
+            ()=>{
+                cb();
+            },
+            err=>cb(err)
+        );
+}
+
 exports.update = (model, callback)=>{
     productModel.findByIdAndUpdate(model._id,model)
         .then(

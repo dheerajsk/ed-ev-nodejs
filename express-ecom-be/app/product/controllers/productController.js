@@ -66,5 +66,12 @@ exports.update = (req, res)=>{
 }
 
 exports.delete = (req, res)=>{
-    res.end("Delete product");
+    const productID = req.params.id;
+    repository.delete(productID, (err)=>{
+        if(err){      
+            res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);     
+        }else{
+            res.status(HTTPStatus.StatusCodes.OK).send("Product is deleted");
+        }
+    })
 }

@@ -19,10 +19,10 @@ REST API Standards
 
 Apis.
     - GetAll Products - GET - done
-    - Get one Product - GET
-    - get products by seller id  - GET
+    - Get one Product - GET - done
+    - get products by seller id  - GET - done
     - update product(secure) - PUT - done
-    - delete product(secure) - DELETE
+    - delete product(secure) - DELETE - done
     - add product(secure) - POST - Done
     - login for seller. - POST
 
