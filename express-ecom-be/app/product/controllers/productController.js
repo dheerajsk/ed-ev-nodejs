@@ -21,11 +21,28 @@ exports.getAll = (req, res)=>{
 
 
 exports.getBySellerID = (req, res)=>{
-    res.end("Get All products by sller id");
+    const sellerID = req.params.id;
+    repository.getBySellerID(sellerID, (err, data)=>{
+        if(err){
+         res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
+        }else{
+         res.send(data);
+        }
+    })
 }
 
 exports.get = (req, res)=>{
-    res.end("Get one product");
+    const productID = req.params.id;
+    repository.get(productID, (err, data)=>{
+        if(err){
+            res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
+        }else{
+            if(!data){
+                res.status(HTTPStatus.StatusCodes.BAD_REQUEST).send("Product doesn't exist");
+            }
+            res.send(data);
+        }
+    })
 }
 
 exports.add = (req, res)=>{

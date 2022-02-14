@@ -20,6 +20,26 @@ exports.getAll = (cb)=>{
             );
 }
 
+exports.getBySellerID = (_sellerID, cb)=>{
+    productModel.find({sellerID: _sellerID})
+        .then(
+            (data)=>{
+                cb(null, data)
+            },
+            err=> cb(err, null)
+            );
+}
+
+exports.get = (id, cb)=>{
+    productModel.findById(id)
+        .then(
+            (product)=>{
+                cb(null, product);
+            },
+            err=>cb(err, null)
+        )
+}
+
 exports.update = (model, callback)=>{
     productModel.findByIdAndUpdate(model._id,model)
         .then(
