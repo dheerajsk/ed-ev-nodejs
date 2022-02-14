@@ -13,8 +13,5 @@ const productSchema = new mongoose.Schema({
     sellerID: {type: mongoose.Types.ObjectId, ref: 'Seller'}
 });
 
-// Step 3: Register Schema
-const product = mongoose.model("Product", productSchema);
-
 // Step 4: Export Schema
-module.exports = product;
+module.exports = productSchema;

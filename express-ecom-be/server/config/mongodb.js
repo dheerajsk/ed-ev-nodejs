@@ -2,6 +2,7 @@
 // Step 1: Import Mongoose library
 
 const mongoose = require("mongoose");
+const models = require("./models");
 
 // Step 2: Define url;
 

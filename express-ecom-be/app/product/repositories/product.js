@@ -1,5 +1,5 @@
 
-const productModel = require("../models/product");
+const {product} = require("../../../server/config/models");
 
 exports.add = (model, cb)=>{
     model.save()
@@ -10,7 +10,7 @@ exports.add = (model, cb)=>{
 }
 
 exports.getAll = (cb)=>{
-    productModel.find({})
+    product.find({}).populate("sellerID")
         .then(
             (data)=>{
                 console.log(data);
@@ -21,7 +21,7 @@ exports.getAll = (cb)=>{
 }
 
 exports.getBySellerID = (_sellerID, cb)=>{
-    productModel.find({sellerID: _sellerID})
+    product.find({sellerID: _sellerID})
         .then(
             (data)=>{
                 cb(null, data)
@@ -31,7 +31,7 @@ exports.getBySellerID = (_sellerID, cb)=>{
 }
 
 exports.get = (id, cb)=>{
-    productModel.findById(id)
+    product.findById(id)
         .then(
             (product)=>{
                 cb(null, product);
@@ -41,7 +41,7 @@ exports.get = (id, cb)=>{
 }
 
 exports.delete = (id, cb)=>{
-    productModel.findByIdAndDelete(id)
+    product.findByIdAndDelete(id)
         .then(
             ()=>{
                 cb();
@@ -51,7 +51,7 @@ exports.delete = (id, cb)=>{
 }
 
 exports.update = (model, callback)=>{
-    productModel.findByIdAndUpdate(model._id,model)
+    product.findByIdAndUpdate(model._id,model)
         .then(
             (data)=>{
                 data.save()
