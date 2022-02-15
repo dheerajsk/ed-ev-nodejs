@@ -50,6 +50,7 @@ exports.add = (req, res)=>{
         name: req.body.name,
         description: req.body.description,
         price: req.body.price,
+        sellerID: req.user.sellerid,
         image: {
             data:fs.readFileSync("../uploads/"+req.file.filename),
             contentType: 'image/jpeg'
