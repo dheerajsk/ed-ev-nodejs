@@ -7,7 +7,7 @@
 const {product} = require("../../../server/config/models");
 const repository = require("../repositories/product");
 const HTTPStatus = require("http-status-codes");
-
+const fs = require("fs");
 
 exports.getAll = (req, res)=>{
    repository.getAll((err, data)=>{
@@ -46,15 +46,22 @@ exports.get = (req, res)=>{
 }
 
 exports.add = (req, res)=>{
-    const newProduct = new product(req.body);
-    repository.add(newProduct, (err, data)=>{
+    const obj = {
+        name: req.body.name,
+        description: req.body.description,
+        price: req.body.price,
+        image: {
+            data:fs.readFileSync("../uploads/"+req.file.filename),
+            contentType: 'image/jpeg'
+        }
+    };
+    repository.add(obj, (err, data)=>{
         if(err){
             res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }else{
             res.send(data);
         }
-    })
-    
+    });
 }
 
 exports.update = (req, res)=>{
@@ -69,8 +76,6 @@ exports.delete = (req, res)=>{
     const productID = req.params.id;
     repository.get(productID, (err, data)=>{
         if(data){
-            console.log(data);
-            console.log(req.user.sellerid);
             if(data.sellerID==req.user.sellerid){
                 repository.delete(productID, (err)=>{
                     if(err){      

@@ -27,11 +27,17 @@ Apis.
     - login for seller. - POST - Done
 
 Remaining
-    1. Implement token based authentication.
+    1. Implement token based authentication. - done
         - Create Login API. - Done
         - Create token service to geenrate token on login - done
         - Create Middleware to secure apis.
+
     2. Upload Files/Images.
+        - Update Product Model - Done.
+        - Create Middleware (upload file into temp folder.), call next m. - done
+        - API will read file from temp and store in db.
+        - Postmand/Client needs to use form-data.
+        - Update Get API to read file.
 
 MVC
 (available to all)

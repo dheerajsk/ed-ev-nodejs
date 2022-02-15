@@ -9,7 +9,7 @@ const productSchema = new mongoose.Schema({
     name:String,
     description: String,
     price: Number,
-    image: String,
+    image: {contentType: String, data: Buffer},
     sellerID: {type: mongoose.Types.ObjectId, ref: 'Seller'}
 });
 

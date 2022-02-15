@@ -2,7 +2,7 @@
 const {product} = require("../../../server/config/models");
 
 exports.add = (model, cb)=>{
-    model.save()
+    product.create(model)
         .then((data)=>{
             cb(null, data);
         },
