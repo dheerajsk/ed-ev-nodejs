@@ -8,11 +8,11 @@ exports.login = (req, res)=>{
     // 1. Find Seller by username
     repo.findByUsername(username, (err, data)=>{
         if(err){
-            res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
+            return res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }
         else{
             if(!data){
-                res.status(HTTPStatus.StatusCodes.BAD_REQUEST).err("Username is incorrect");
+                return res.status(HTTPStatus.StatusCodes.BAD_REQUEST).send("Username is incorrect");
             }
             const seller = data;
             console.log(seller);
@@ -26,9 +26,12 @@ exports.login = (req, res)=>{
                         expiresIn: "2h"
                     }
                     );
-                    console.log(token);
-                seller.token = token;
-                res.status(HTTPStatus.StatusCodes.OK).send(seller);
+                const authResponeModel = {
+                    id:seller._id,
+                    username:seller.username,
+                    token: token
+                }
+                res.status(HTTPStatus.StatusCodes.OK).send(authResponeModel);
             }else{
                 res.status(HTTPStatus.StatusCodes.BAD_REQUEST).send("Password is incorrect");
             }

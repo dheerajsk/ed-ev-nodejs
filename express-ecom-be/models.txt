@@ -24,7 +24,7 @@ Apis.
     - update product(secure) - PUT - done
     - delete product(secure) - DELETE - done
     - add product(secure) - POST - Done
-    - login for seller. - POST
+    - login for seller. - POST - Done
 
 Remaining
     1. Implement token based authentication.
@@ -62,3 +62,13 @@ Controller->BusinessLogic(Service, Managers)-> Repository(DAL, Persistence Layer
 
 Infrastructure Layer (Sending Email)
 Entities/Schema Layer 
+
+
+How Secure APi works?
+
+1. Client passes jwt token in auth header. .
+2. Create a middleware to verify token.
+    This needs to execute before controller methods.
+        if token verified-> call next middleware in pipeline(API)
+        else return 401/403.
+3. 
