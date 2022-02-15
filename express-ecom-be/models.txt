@@ -26,6 +26,13 @@ Apis.
     - add product(secure) - POST - Done
     - login for seller. - POST
 
+Remaining
+    1. Implement token based authentication.
+        - Create Login API. - Done
+        - Create token service to geenrate token on login - done
+        - Create Middleware to secure apis.
+    2. Upload Files/Images.
+
 MVC
 (available to all)
  - Show All products

@@ -7,4 +7,5 @@ const mongoose = require("mongoose");
 const product = mongoose.model("Product", productSchema);
 const seller = mongoose.model("Seller", sellerSchema);
 
+// sellers
 module.exports = {product, seller};
