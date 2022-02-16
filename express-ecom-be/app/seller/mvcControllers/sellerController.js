@@ -28,10 +28,8 @@ exports.getAll = (req, res)=>{
 }
 
 exports.update = (req, res)=>{
-    console.log(req.body);
     const productToUpdate = new product(req.body);
-    console.log("calling repo");
     productRepository.update(productToUpdate, (data)=>{
-        res.redirect("../../seller/product");
+        res.redirect("../product");
     })
 }

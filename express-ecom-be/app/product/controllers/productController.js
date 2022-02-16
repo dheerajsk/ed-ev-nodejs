@@ -67,7 +67,6 @@ exports.add = (req, res)=>{
 
 exports.update = (req, res)=>{
     const productToUpdate = new product(req.body);
-    console.log("calling repo");
     repository.update(productToUpdate, (data)=>{
         res.send(data);
     })
