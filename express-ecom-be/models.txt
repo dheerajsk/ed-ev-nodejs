@@ -52,6 +52,29 @@ MVC
  - Add Product
  - Login Page
 
+
+MVC - Model View Controller
+- one of the Most popular web development pattern.
+- Controller is central part.
+- controller takes request.
+- model encpsulates data
+- view render html content with our data.
+- separation of concerns.
+- single responsibilities.
+
+
+Steps for MVC Request.
+1. Install EJS (View Engine)
+2. Create Controller. - done
+3. Create View. - done (with .ejs extension)
+4. Create Routes. - done
+5. Update Index file. - done
+    5.1 Register view engine.
+    5.2 Path for views in index
+    5.3 Use routes middleware.
+
+
+
     
 Steps to create REST API.
 1. Configured Routes - done

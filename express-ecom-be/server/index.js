@@ -2,6 +2,8 @@
 // Step 1: Import express
 const express = require("express");
 const productRoutes = require("../app/product/routes/productRoutes");
+const productMVCRoutes = require("../app/product/routes/productMVCRoutes");
+
 const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
 const bodyParser = require("body-parser");
@@ -17,6 +19,10 @@ mongodb.connect();
 // Step 3: Listen to clients
 server.listen(3200);
 
+// View engine configuration.
+server.set("view engine", "ejs");
+server.set("views", "../app/product/views");
+
 // Middleware for bodyParser
 server.use(bodyParser.json());
 
@@ -25,6 +31,9 @@ server.use(bodyParser.json());
 // Forward all requests starting with /api/product to productRoutes.
 server.use("/api/product", productRoutes);
 server.use("/api/seller", sellerRoutes);
+// Forward MVC Requests.
+// localhost:3200/product
+server.use("/product", productMVCRoutes);
 
 
 // Step 5: Take requests

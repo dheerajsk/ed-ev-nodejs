@@ -15,7 +15,6 @@ exports.login = (req, res)=>{
                 return res.status(HTTPStatus.StatusCodes.BAD_REQUEST).send("Username is incorrect");
             }
             const seller = data;
-            console.log(seller);
             // 2. Verify the password
             if(seller.password==password){
                 // 3. Generate token

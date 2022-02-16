@@ -13,7 +13,6 @@ exports.getAll = (cb)=>{
     product.find({}).populate("sellerID")
         .then(
             (data)=>{
-                console.log(data);
                 cb(null, data)
             },
             err=> cb(err, null)
