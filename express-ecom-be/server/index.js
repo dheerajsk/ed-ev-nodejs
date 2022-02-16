@@ -25,7 +25,9 @@ server.set("view engine", "ejs");
 server.set("views", ["../app/product/views", "../app/seller/views"]);
 
 // Middleware for bodyParser
+// parsing json data
 server.use(bodyParser.json());
+// parsing form data
 server.use(bodyParser.urlencoded({extended: false}));
 
 // Step 4: Routing redirections

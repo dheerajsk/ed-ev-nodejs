@@ -46,8 +46,8 @@ MVC
  - Filter products based on seller.
 
 (for seller)
- - see seller's products.
- - Udpate a product
+ - see seller's products. - done.
+ - Udpate a product - done.
  - Delete a product
  - Add Product
  - Login Page
