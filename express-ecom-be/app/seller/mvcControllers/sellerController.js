@@ -1,27 +1,37 @@
+
+const productRepository = require("../../product/repositories/product");
 const {product} = require("../../../server/config/models");
-const repository = require("../repositories/product");
 
 exports.getAll = (req, res)=>{
-    repository.getAll((err, data)=>{
+    productRepository.getAll((err, data)=>{
         if(err){
         //  res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }else{
          // Return views.
-            res.render("products", {products: data});
+            res.render("seller-products", {products: data});
         }
     })
  }
 
  exports.get = (req, res)=>{
     const productID = req.params.id;
-    repository.get(productID, (err, data)=>{
+    productRepository.get(productID, (err, data)=>{
         if(err){
             // res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }else{
             if(!data){
                 // res.status(HTTPStatus.StatusCodes.BAD_REQUEST).send("Product doesn't exist");
             }
-            res.render("product-detail", {product:data});
+            res.render("seller-product-detail", {product:data});
         }
+    })
+}
+
+exports.update = (req, res)=>{
+    console.log(req.body);
+    const productToUpdate = new product(req.body);
+    console.log("calling repo");
+    productRepository.update(productToUpdate, (data)=>{
+        res.redirect("../../seller/product");
     })
 }

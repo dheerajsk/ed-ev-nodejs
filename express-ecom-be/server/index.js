@@ -3,6 +3,7 @@
 const express = require("express");
 const productRoutes = require("../app/product/routes/productRoutes");
 const productMVCRoutes = require("../app/product/routes/productMVCRoutes");
+const sellerMVCRoutes = require("../app/seller/routes/sellerMVCRoutes");
 
 const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
@@ -21,10 +22,11 @@ server.listen(3200);
 
 // View engine configuration.
 server.set("view engine", "ejs");
-server.set("views", "../app/product/views");
+server.set("views", ["../app/product/views", "../app/seller/views"]);
 
 // Middleware for bodyParser
 server.use(bodyParser.json());
+server.use(bodyParser.urlencoded({extended: false}));
 
 // Step 4: Routing redirections
 
@@ -34,7 +36,7 @@ server.use("/api/seller", sellerRoutes);
 // Forward MVC Requests.
 // localhost:3200/product
 server.use("/product", productMVCRoutes);
-
+server.use("/seller", sellerMVCRoutes);
 
 // Step 5: Take requests
 
