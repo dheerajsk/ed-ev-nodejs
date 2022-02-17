@@ -6,6 +6,7 @@ const router = express.Router();
 const sessionCheck = require("../../../server/middlewares/session-check");
 
 // seller/login
+router.get("/logout", sessionCheck, authController.logout)
 router.get("/login", authController.getLoginView);
 router.post("/login", authController.login);
 

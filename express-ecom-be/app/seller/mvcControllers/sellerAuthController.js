@@ -15,11 +15,17 @@ exports.login = (req, res)=>{
         if(user.password==password){
             req.session.authenticated=true;
             req.session.user=user;
-            console.log("Password match");
+            // console.log("Password match");
             res.redirect("../seller/product");
             // create session
         }else{
-            console.log("Invalid Credentials");
+            res.render("login", {error:"Invalid Creds"});
         }
     });
+}
+
+exports.logout = (req, res)=>{
+    req.session.authenticated=false;
+    req.session.user=null;
+    res.redirect("../seller/login");
 }

@@ -3,8 +3,10 @@ const productRepository = require("../../product/repositories/product");
 const {product} = require("../../../server/config/models");
 
 exports.getAll = (req, res)=>{
-    productRepository.getAll((err, data)=>{
+    // console.l
+    productRepository.getBySellerID(req.session.user._id, (err, data)=>{
         if(err){
+
         //  res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
         }else{
          // Return views.
@@ -28,6 +30,8 @@ exports.getAll = (req, res)=>{
 }
 
 exports.add = (req, res)=>{
+    console.log("Add req");
+    req.body.sellerID=req.session.user._id;
     const productToAdd = new product(req.body);
     productRepository.add(productToAdd, (err, data)=>{
         if(err){

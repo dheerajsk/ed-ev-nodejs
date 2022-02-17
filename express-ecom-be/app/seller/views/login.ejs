@@ -18,19 +18,24 @@
             </div>
             <div class="col-md-4">
                 <h1>Login</h1>
-                <form action="/seller/login" method="post">
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Username</label>
-                        <input type="text" name="username" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Password</label>
-                        <input type="password" name="password" class="form-control">
-                    </div>
-                    <div class="mb-3">
-                        <input class="btn btn-success" type="submit">
-                    </div>
-                </form>
+                <% if(locals.error){ %>
+                    <span style="color: red;">
+                        <%=error %>
+                    </span>
+                    <% } %>
+                        <form action="/seller/login" method="post">
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Username</label>
+                                <input type="text" name="username" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleFormControlInput1" class="form-label">Password</label>
+                                <input type="password" name="password" class="form-control">
+                            </div>
+                            <div class="mb-3">
+                                <input class="btn btn-success" type="submit">
+                            </div>
+                        </form>
             </div>
         </div>
 
