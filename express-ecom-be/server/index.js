@@ -8,6 +8,7 @@ const sellerMVCRoutes = require("../app/seller/routes/sellerMVCRoutes");
 const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
 const bodyParser = require("body-parser");
+const session = require("express-session");
 
 // Step 2: Create Server
 const server = express();
@@ -19,6 +20,13 @@ mongodb.connect();
 
 // Step 3: Listen to clients
 server.listen(3200);
+
+// Configure session
+server.use(session({
+    secret:"This is a secret",
+    cookie:{maxAge: 300000},
+    saveUninitialized:false
+}));
 
 // View engine configuration.
 server.set("view engine", "ejs");

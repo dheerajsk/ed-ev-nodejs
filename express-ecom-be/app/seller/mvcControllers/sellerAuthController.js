@@ -6,7 +6,6 @@ exports.getLoginView = (req, res)=>{
 }
 
 exports.login = (req, res)=>{
-    console.log(req.body);
     const username=req.body.username;
     const password = req.body.password;
     sellerRepo.findByUsername(username, (err, user)=>{
@@ -14,7 +13,10 @@ exports.login = (req, res)=>{
             res.send("invalid creds");
         }
         if(user.password==password){
+            req.session.authenticated=true;
+            req.session.user=user;
             console.log("Password match");
+            res.redirect("../seller/product");
             // create session
         }else{
             console.log("Invalid Credentials");
