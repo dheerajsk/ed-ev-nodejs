@@ -27,9 +27,24 @@ exports.getAll = (req, res)=>{
     })
 }
 
+exports.add = (req, res)=>{
+    const productToAdd = new product(req.body);
+    productRepository.add(productToAdd, (err, data)=>{
+        if(err){
+        //    res.status(HTTPStatus.StatusCodes.INTERNAL_SERVER_ERROR).send(err);
+        }else{
+            res.redirect("../product");
+        }
+    });
+}
+
 exports.update = (req, res)=>{
     const productToUpdate = new product(req.body);
     productRepository.update(productToUpdate, (data)=>{
         res.redirect("../product");
     })
+}
+
+exports.getAddView = (req, res)=>{
+    res.render("product-new");
 }

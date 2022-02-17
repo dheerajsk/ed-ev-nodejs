@@ -43,15 +43,15 @@ MVC
 (available to all)
  - Show All products - Done.
  - See detail of product. - Done
- - Filter products based on seller.
 
 (for seller)
  - see seller's products. - done.
  - Udpate a product - done.
  - Delete a product
- - Add Product
+ - Add Product - done.
  - Login Page
-
+ - Create Session.
+ - Secure seller functionalties 
 
 MVC - Model View Controller
 - one of the Most popular web development pattern.
