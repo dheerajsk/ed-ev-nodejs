@@ -4,6 +4,7 @@ const express = require("express");
 const productRoutes = require("../app/product/routes/productRoutes");
 const productMVCRoutes = require("../app/product/routes/productMVCRoutes");
 const sellerMVCRoutes = require("../app/seller/routes/sellerMVCRoutes");
+const path=require("path");
 
 const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
@@ -30,7 +31,7 @@ server.use(session({
 
 // View engine configuration.
 server.set("view engine", "ejs");
-server.set("views", ["../app/product/views", "../app/seller/views"]);
+server.set("views", [path.join(__dirname, '../app/product/views'), path.join(__dirname, '../app/seller/views')]);
 
 // Middleware for bodyParser
 // parsing json data
@@ -45,10 +46,14 @@ server.use("/api/product", productRoutes);
 server.use("/api/seller", sellerRoutes);
 // Forward MVC Requests.
 // localhost:3200/product
+
 server.use("/product", productMVCRoutes);
 server.use("/seller", sellerMVCRoutes);
 
 // Step 5: Take requests
+
+
+
 
 server.get("/", (req, res)=>{
     res.end("Hello, You are connected to express server");

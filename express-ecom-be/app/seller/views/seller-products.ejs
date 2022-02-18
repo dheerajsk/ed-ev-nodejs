@@ -11,47 +11,39 @@
 </head>
 
 <body>
-
-    <nav class="navbar navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand">E-Com Seller</a>
-            <form class="d-flex float-end">
-                <a class="btn btn-danger" href="/seller/logout">Logout</a>
-            </form>
-        </div>
-    </nav>
-    <div class="container">
-        <h2>Products</h2>
-        <a class="btn btn-success" href="/seller/product/new">New Product</a>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col"></th>
-                </tr>
-            </thead>
-            <tbody>
-                <% products.forEach(product=>{ %>
+    <%- include('partials/header') %>
+        <div class="container">
+            <h2>Products</h2>
+            <a class="btn btn-success" href="/seller/product/new">New Product</a>
+            <table class="table">
+                <thead>
                     <tr>
-                        <th scope="row">
-                            <%=product._id %>
-                        </th>
-                        <td>
-                            <%=product.name %>
-                        </td>
-                        <td>
-                            <%=product.price %>
-                        </td>
-                        <td>
-                            <a class="btn btn-primary" href="product/<%=product._id %>">Update</a>
-                        </td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col"></th>
                     </tr>
-                    <% }) %>
-            </tbody>
-        </table>
-    </div>
+                </thead>
+                <tbody>
+                    <% products.forEach(product=>{ %>
+                        <tr>
+                            <th scope="row">
+                                <%=product._id %>
+                            </th>
+                            <td>
+                                <%=product.name %>
+                            </td>
+                            <td>
+                                <%=product.price %>
+                            </td>
+                            <td>
+                                <a class="btn btn-primary" href="product/<%=product._id %>">Update</a>
+                            </td>
+                        </tr>
+                        <% }) %>
+                </tbody>
+            </table>
+        </div>
 </body>
 
 </html>

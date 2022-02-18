@@ -101,3 +101,21 @@ How Secure APi works?
         if token verified-> call next middleware in pipeline(API)
         else return 401/403.
 3. 
+
+
+18-02
+1. Partial Views.
+2. Error Handling globally.
+3. Grunt Task Runner.
+
+1. Log Every request.(Request url, user, body, method);
+- winston.
+2. Performance Threshold.(1500ms), log it.
+3. Globally handle uncaught errors(do not print stacktrace)
+
+
+
+Monday.
+- morgan logs.
+- securing node server.
+- ssl/tls.
