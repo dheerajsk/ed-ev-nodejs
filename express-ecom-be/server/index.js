@@ -5,6 +5,7 @@ const productRoutes = require("../app/product/routes/productRoutes");
 const productMVCRoutes = require("../app/product/routes/productMVCRoutes");
 const sellerMVCRoutes = require("../app/seller/routes/sellerMVCRoutes");
 const path=require("path");
+const errorHandler = require("../server/middlewares/error-handler");
 
 const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
@@ -52,8 +53,7 @@ server.use("/seller", sellerMVCRoutes);
 
 // Step 5: Take requests
 
-
-
+server.use(errorHandler);
 
 server.get("/", (req, res)=>{
     res.end("Hello, You are connected to express server");

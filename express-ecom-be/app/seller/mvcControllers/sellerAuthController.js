@@ -2,6 +2,7 @@
 const sellerRepo = require("../repositories/seller");
 
 exports.getLoginView = (req, res)=>{
+    throw new Error("Login error");
     res.render("login");
 }
 
