@@ -1,5 +1,5 @@
 
-const arithmatic = require("./arithmatics");
+const arithmatic = require("../arithmatics");
 const chai = require("chai");
 const expect = chai.expect
 
