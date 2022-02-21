@@ -1,0 +1,24 @@
+1. Sql Injection.
+    - Mongoose.
+        - uses paramterized query.
+        getUser = (userID)=>{
+            select * from User where ID=userID;  
+        }
+        getUser(' or 1==1 ')
+        select * from User where ID=
+        userID or 1==1
+
+2. XSS - Package(validatorjs)
+    app.get("/:id", userController.getByID);
+    1. vanilla - > js methods, create your own using regex.
+    2. validatorjs
+        validator.isEmail(email);
+        validator.isNumber(id);
+
+3. DoS. (express-rate-limit )
+    express-rate-limit - npm.
+
+4. CSRF (csurf)
+csurf.
+    const csrfConfig = csrf();
+    server.use(csrfConfig);

@@ -11,6 +11,7 @@ const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+const rateLmiter = require("../server/middlewares/rateLimiter");
 
 // Step 2: Create Server
 const server = express();
@@ -23,6 +24,8 @@ mongodb.connect();
 // Step 3: Listen to clients
 server.listen(3200);
 
+server.use(rateLmiter);
+
 // Configure session
 server.use(session({
     secret:"This is a secret",
@@ -33,6 +36,7 @@ server.use(session({
 // View engine configuration.
 server.set("view engine", "ejs");
 server.set("views", [path.join(__dirname, '../app/product/views'), path.join(__dirname, '../app/seller/views')]);
+
 
 // Middleware for bodyParser
 // parsing json data
