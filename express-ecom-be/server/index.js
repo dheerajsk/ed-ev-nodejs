@@ -11,6 +11,7 @@ const sellerRoutes = require("../app/seller/routes/seller");
 const mongodb = require("./config/mongodb");
 const bodyParser = require("body-parser");
 const session = require("express-session");
+
 const rateLmiter = require("../server/middlewares/rateLimiter");
 
 // Step 2: Create Server
@@ -22,7 +23,9 @@ mongodb.connect();
 
 
 // Step 3: Listen to clients
-server.listen(3200);
+const instance = server.listen(3200);
+instance.timeout = 1000;
+
 
 server.use(rateLmiter);
 
@@ -60,6 +63,7 @@ server.use("/seller", sellerMVCRoutes);
 server.use(errorHandler);
 
 server.get("/", (req, res)=>{
+    req.socket.remoteAddress
     res.end("Hello, You are connected to express server");
 });
 
