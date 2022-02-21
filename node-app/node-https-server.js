@@ -1,10 +1,13 @@
 
 // NodeJS Core Module.
 const https = require("https");
+const cors = require("cors");
+
 
 // express instance
 const expressServer = require("express")();
 
+// expressServer.use(cors({""}))
 // expressServer.use("/api/user", userRoutes)
 
 
